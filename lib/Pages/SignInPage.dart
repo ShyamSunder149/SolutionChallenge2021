@@ -177,27 +177,28 @@ class _LoginState extends State<Login> {
                     SizedBox(height: MediaQuery.of(context).size.height*0.05,),
                     InkWell(
                       onTap: () {
-                       auth.verifyPhoneNumber(
-                           phoneNumber: _numberController.text,
-                           timeout: Duration(seconds: 60),
-                           verificationCompleted: (PhoneAuthCredential phoneAuth){
-                             print("smscode : ${phoneAuth.smsCode} provider Id: ${phoneAuth.providerId}  verificationId: ${phoneAuth.verificationId} ");
-                             print("User verified _____");
-                             auth.signInWithCredential(phoneAuth).then((value) {
-                               value.user.updateProfile(displayName: _nameController.text);
-                               Navigator.pushNamed(context, 'ChooseYourRole');
-                             });
-                           },
-                           verificationFailed: (FirebaseAuthException exception){
-                             print("_____________$exception");
-                             SnackBar(key:loginKey,content: Text("Verification Failed...Please retry"),duration: Duration(seconds: 2),backgroundColor: Colors.red,);
-                           },
-                           codeSent: (String verifyId,int token1){
-                             print("________verify : $verifyId ____token : $token1");
-                           },
-                           codeAutoRetrievalTimeout: (String status) {
-                             print("codeAutoRetrievalTimeout:  $status");
-                           });
+                        Navigator.pushNamed(context, 'ChooseYourRole');
+                       // auth.verifyPhoneNumber(
+                       //     phoneNumber: _numberController.text,
+                       //     timeout: Duration(seconds: 60),
+                       //     verificationCompleted: (PhoneAuthCredential phoneAuth){
+                       //       print("smscode : ${phoneAuth.smsCode} provider Id: ${phoneAuth.providerId}  verificationId: ${phoneAuth.verificationId} ");
+                       //       print("User verified _____");
+                       //       auth.signInWithCredential(phoneAuth).then((value) {
+                       //         value.user.updateProfile(displayName: _nameController.text);
+                       //         Navigator.pushNamed(context, 'ChooseYourRole');
+                       //       });
+                       //     },
+                       //     verificationFailed: (FirebaseAuthException exception){
+                       //       print("_____________$exception");
+                       //       SnackBar(key:loginKey,content: Text("Verification Failed...Please retry"),duration: Duration(seconds: 2),backgroundColor: Colors.red,);
+                       //     },
+                       //     codeSent: (String verifyId,int token1){
+                       //       print("________verify : $verifyId ____token : $token1");
+                       //     },
+                       //     codeAutoRetrievalTimeout: (String status) {
+                       //       print("codeAutoRetrievalTimeout:  $status");
+                       //     });
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height*0.07,

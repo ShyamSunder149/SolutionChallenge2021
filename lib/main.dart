@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: (FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser.phoneNumber != null)?(whoIsTheUser == "Farmer")?'FarmerHome':"UserHome":'LoginSection',
+     //initialRoute: (FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser.phoneNumber != null)?(whoIsTheUser == "Farmer")?'FarmerHome':"UserHome":'LoginSection',
+     initialRoute: 'LoginSection',
       routes: {
         'LoginSection': (context) => Login(),
         'FarmerHome': (context) => FarmerHomePage(),
