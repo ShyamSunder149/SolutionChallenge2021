@@ -110,11 +110,11 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           color: Colors.black,
                         ),
-                        controller: _verificationNumber,
+                        controller: _nameController,
                         decoration: InputDecoration(
                             focusColor: Colors.black,
                             prefixIcon: Icon(Icons.lock_open_outlined,color: Theme.of(context).primaryColor,),
-                            hintText: 'Verification Code',
+                            hintText: 'Name',
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             focusedErrorBorder: InputBorder.none,
@@ -128,7 +128,7 @@ class _LoginState extends State<Login> {
                         ),
                         onSubmitted: (text) {
                           setState(() {
-                            _verificationNumber.text = text;
+                            _nameController .text = text;
 
 
                           });
@@ -183,37 +183,6 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height*0.05,),
-                    Container(
-                      child:Center(
-                        child:Text("Forgot Password?",style:TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                          fontSize: 17
-                        ))
-                      )
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.fromLTRB(65, 20, 10, 20),
-                            child: Center(
-                                child:Text("Don't have an Account?",style: TextStyle(
-                                    color: Colors.white,
-                                  fontSize: 17
-                                )
-                                ))
-                        ),
-                        Container(
-                          child: Center(
-                              child:Text("Sign Up",style: TextStyle(
-                                  color: Colors.white,
-                                  decoration: TextDecoration.underline,
-                                fontSize: 17
-                              ),)
-                          ),
-                        )
-                      ],
-                    )
 
                     // InkWell(
                     //   onTap: () {

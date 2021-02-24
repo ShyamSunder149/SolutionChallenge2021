@@ -1,7 +1,10 @@
 import 'package:agrokart/Pages/Farmer/HomePageFarmer.dart';
+import 'package:agrokart/Pages/Farmer/ProfilePage.dart';
+import 'package:agrokart/Pages/LogoutScreen.dart';
 import 'package:agrokart/Pages/SelectFarmerorUser.dart';
 import 'package:agrokart/Pages/SignInPage.dart';
 import 'package:agrokart/Pages/Users/UserHome.dart';
+import 'package:agrokart/Pages/Users/UserProfile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +30,9 @@ class MyApp extends StatelessWidget {
      //initialRoute: (FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser.phoneNumber != null)?(whoIsTheUser == "Farmer")?'FarmerHome':"UserHome":'LoginSection',
      initialRoute: 'LoginSection',
       routes: {
-        'LaunchScreen': (context) = Launch(),
+        'LogoutScreen':(context) => LogoutScreen(),
+        'FarmerProfilePage': (context) => FarmerProfile(),
+        'UserProfilePage': (context) => UserProfile(),
         'LoginSection': (context) => Login(),
         'FarmerHome': (context) => FarmerHomePage(),
         'ChooseYourRole': (context) => SelectYourRole(),
