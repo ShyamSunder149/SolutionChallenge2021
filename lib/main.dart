@@ -21,12 +21,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'AgroKart',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightGreen,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
      //initialRoute: (FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser.phoneNumber != null)?(whoIsTheUser == "Farmer")?'FarmerHome':"UserHome":'LoginSection',
      initialRoute: 'LoginSection',
       routes: {
+        'LaunchScreen': (context) = Launch(),
         'LoginSection': (context) => Login(),
         'FarmerHome': (context) => FarmerHomePage(),
         'ChooseYourRole': (context) => SelectYourRole(),
