@@ -1,4 +1,4 @@
-# agrokart
+# AgroKart
 
 A new Flutter application.
 
