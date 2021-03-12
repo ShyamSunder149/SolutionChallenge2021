@@ -32,9 +32,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  cloud_firestore:
-  firebase_core:
-  firebase_auth:
+  cloud_firestore: ^1.0.1
+  firebase_core: ^1.0.1
+  firebase_auth: ^1.0.1
+  google_fonts: ^2.0.0
+  flutter_svg: ^0.19.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,17 +65,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-     - family: Roboto
-       fonts:
-         - asset: assets/Roboto-Regular.ttf
-           weight: 500
-         - asset: assets/Roboto-Italic.ttf
-           style: italic
-         - asset: assets/Roboto-Light.ttf
-           weight: 400
-         - asset: assets/Roboto-Bold.ttf
-           weight: 700
+#  fonts:
+#     - family: Roboto
+#       fonts:
+#         - asset: assets/Roboto-Regular.ttf
+#           weight: 500
+#         - asset: assets/Roboto-Italic.ttf
+#           style: italic
+#         - asset: assets/Roboto-Light.ttf
+#           weight: 400
+#         - asset: assets/Roboto-Bold.ttf
+#           weight: 700
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
