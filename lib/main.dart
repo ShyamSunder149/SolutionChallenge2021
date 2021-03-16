@@ -1,5 +1,6 @@
 import 'package:agrokart/Pages/Farmer/HomePageFarmer.dart';
 import 'package:agrokart/Pages/Farmer/ProfilePage.dart';
+import 'package:agrokart/Pages/FeedbackPage.dart';
 import 'package:agrokart/Pages/ListingsPage.dart';
 import 'package:agrokart/Pages/LogoutScreen.dart';
 import 'package:agrokart/Pages/SelectFarmerorUser.dart';
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
         'ChooseYourRole': (context) => SelectYourRole(),
         'UserHome' : (context) => UserHomePage(),
         'ListingsPage':(context) => ListingsPage(),
-        'SettingsPage':(context) => SettingsPage()
+        'SettingsPage':(context) => SettingsPage(),
+        "feedback":(context) => FeedbackForm()
       },
 
     );

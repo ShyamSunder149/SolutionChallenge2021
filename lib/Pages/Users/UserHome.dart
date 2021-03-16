@@ -64,23 +64,47 @@ class _UserHomePageState extends State<UserHomePage> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width*0.1,
 
-              child: ListView.separated(
-                  itemBuilder: (context,int index) =>
-                      ListTile(
-                        leading: sideBar[index]['icon'],
-                        title: Text(
-                          sideBar[index]["title"],style: TextStyle(
-                            color: Colors.white,
-                            fontSize: GFS(20, context),
-                            fontFamily: "Roboto",
-                            fontWeight: FontWeight.w700
-                        ),
-
-                        ),
-                        onTap: () => Navigator.pushNamed(context, sideBar[index]["route"]),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.3,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.white,
+                    alignment: Alignment.center,
+                    child: Text(
+                        "AgroMart",style: GoogleFonts.roboto(
+                      textStyle:TextStyle(
+                          color:   Color(0xff309a20),
+                          fontSize: GFS(35, context),
+                          fontWeight: FontWeight.w700
                       ),
-                  separatorBuilder:(context, int index) => Divider(color: Colors.white,thickness: 1.0,),
-                  itemCount: sideBar.length)
+                    )
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.7,
+                    child: ListView.separated(
+                        itemBuilder: (context,int index) =>
+                            ListTile(
+                              leading: sideBar[index]['icon'],
+                              title: Text(
+                                  sideBar[index]["title"],style: GoogleFonts.roboto(
+                                textStyle:TextStyle(
+                                    color: Colors.white,
+                                    fontSize: GFS(20, context),
+                                    fontWeight: FontWeight.w700
+                                ),
+                              )
+
+                              ),
+                              onTap: () => Navigator.pushNamed(context, sideBar[index]["route"]),
+                            ),
+                        separatorBuilder:(context, int index) => Divider(color: Colors.white,thickness: 1.0,),
+                        itemCount: sideBar.length),
+                  ),
+                ],
+              )
           ),
         ),
         body:Container(

@@ -2,11 +2,19 @@ import 'package:agrokart/Pages/SignInPage.dart';
 import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:agrokart/Pages/SignInPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 class LogoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [const Color(0xffcbf019), const Color(0xff309a20)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight
+          )
+
+      ),
       child: AlertDialog(
         title:
         Text("Logout", style: TextStyle(
@@ -37,24 +45,24 @@ class LogoutScreen extends StatelessWidget {
                       onTap:(){
                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => Login()),(Route<dynamic> route) => false);
                         },
-                      child: Text("Yes", style: TextStyle(
-                          color: Colors.red,
+                      child: Text("Yes", style:  GoogleFonts.roboto(textStyle: TextStyle(
+                          color: Colors.green,
                           fontSize: GFS(20, context),
-                          fontFamily: "Roboto",
                           fontWeight: FontWeight.w700
                       ),),
+                      )
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width*0.1,),
                     InkWell(
                       onTap:(){
                         Navigator.pop(context);
                       },
-                      child: Text("No", style: TextStyle(
-                          color: Colors.green[700],
+                      child: Text("No", style: GoogleFonts.roboto(textStyle:TextStyle(
+                          color: Colors.red,
                           fontSize: GFS(20, context),
-                          fontFamily: "Roboto",
                           fontWeight: FontWeight.w700
                       ),),
+                      )
                     ),
                   ],
 

@@ -16,7 +16,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
     super.initState();
     controllerName = TextEditingController(text: 'Sudharsan');
     controllerDOB = TextEditingController(text: '123435');
-    controllerEmail = TextEditingController(text: 'sudhar01sd@gmail.com');
+    controllerEmail = TextEditingController(text: 'ANJ APT ,TRICHY -6201012');
     controllerMobile = TextEditingController(text: '9843700596');
   }
 
@@ -101,10 +101,9 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
-                            readOnly: true,
                             controller: controllerEmail,
                             decoration: InputDecoration(
-                              labelText: "E-MAIL",
+                              labelText: "ADDRESS",
                               focusColor: Colors.grey,
                               hoverColor: Colors.grey,
                               fillColor: Colors.grey,
@@ -118,7 +117,6 @@ class _FarmerProfileState extends State<FarmerProfile> {
                                 fontWeight: FontWeight.w600,
                                 fontSize:
                                 GFS(17, context)),
-                            maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
                             onSubmitted: (text) {
@@ -166,23 +164,10 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
+                            readOnly: true,
                             keyboardType: TextInputType.datetime,
                             controller: controllerDOB,
                             decoration: InputDecoration(
-                              suffixIcon: Container(
-                                  height: 20.0,
-                                  width: 20.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  child: Icon(
-                                    Icons.edit,
-                                    color: Colors.white,
-                                    size: 10.0,
-                                  )),
-                              suffixIconConstraints: BoxConstraints(
-                                  maxWidth: 50.0, maxHeight: 50.0),
                               labelText: "DATE OF BIRTH",
                               focusColor: Colors.grey,
                               hoverColor: Colors.grey,

@@ -85,7 +85,7 @@ class _UserProfileState extends State<UserProfile> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 fontSize:
-                               GFS(17, context)),
+                                GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -101,10 +101,9 @@ class _UserProfileState extends State<UserProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
-                            readOnly: true,
                             controller: controllerEmail,
                             decoration: InputDecoration(
-                              labelText: "E-MAIL",
+                              labelText: "ADDRESS",
                               focusColor: Colors.grey,
                               hoverColor: Colors.grey,
                               fillColor: Colors.grey,
@@ -117,8 +116,7 @@ class _UserProfileState extends State<UserProfile> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 fontSize:
-                               GFS(17, context)),
-                            maxLines: 1,
+                                GFS(17, context)),
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
                             onSubmitted: (text) {
@@ -150,7 +148,7 @@ class _UserProfileState extends State<UserProfile> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 fontSize:
-                               GFS(17, context)),
+                                GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -166,23 +164,10 @@ class _UserProfileState extends State<UserProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
+                            readOnly: true,
                             keyboardType: TextInputType.datetime,
                             controller: controllerDOB,
                             decoration: InputDecoration(
-                              suffixIcon: Container(
-                                  height: 20.0,
-                                  width: 20.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  child: Icon(
-                                    Icons.edit,
-                                    color: Colors.white,
-                                    size: 10.0,
-                                  )),
-                              suffixIconConstraints: BoxConstraints(
-                                  maxWidth: 50.0, maxHeight: 50.0),
                               labelText: "DATE OF BIRTH",
                               focusColor: Colors.grey,
                               hoverColor: Colors.grey,
@@ -196,7 +181,7 @@ class _UserProfileState extends State<UserProfile> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 fontSize:
-                               GFS(17, context)),
+                                GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
