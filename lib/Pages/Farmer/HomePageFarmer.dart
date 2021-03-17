@@ -21,9 +21,9 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
       "route": "ListingsPage"
     },
     {
-      "title": "Settings",
-      "icon": Icon(Icons.settings,color: Colors.white,),
-      "route": "SettingsPage"
+      "title": "FeedBack",
+      "icon": Icon(Icons.feedback_rounded,color: Colors.white,),
+      "route": "feedback"
     },
     {
       "title": "Logout",

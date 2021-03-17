@@ -35,17 +35,19 @@ class _FeedbackFormState extends State<FeedbackForm> {
             Container(
               height: MediaQuery.of(context).size.height*0.3,
               width: MediaQuery.of(context).size.width*0.9,
+
               child: TextField(
                 controller: _feedback,
+
                 decoration: InputDecoration(
-                  hintText: "Give your feedback here...",
+                  hintText: "Please provide your valuable feedback...",
                   focusColor: Colors.grey,
                   hoverColor: Colors.grey,
                   fillColor: Colors.grey,
                   labelStyle: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize:GFS(14, context)),
-                  contentPadding: EdgeInsets.zero,
+                  contentPadding: EdgeInsets.zero
                 ),
                 style: TextStyle(
                     color: Colors.black,
@@ -69,7 +71,25 @@ class _FeedbackFormState extends State<FeedbackForm> {
 
 
            },
-             child: Text("Submit"),
+             child: Container(
+               height: MediaQuery.of(context).size.height*0.07,
+               width: MediaQuery.of(context).size.width*0.4,
+               decoration: BoxDecoration(
+                   color: Colors.lightGreen,
+                   borderRadius: BorderRadius.circular(40.0),
+
+               ),
+               child: Center(
+                 child: Text("Submit" ,
+                   style: TextStyle(
+                     color: Colors.white,
+                     fontSize: GFS(20, context),
+
+                   ),
+                 ),
+               ),
+
+             ),
            )
           ],
         ),
@@ -91,7 +111,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
                  width:  MediaQuery.of(context).size.width,
                  alignment: Alignment.center,
                  child: Text("ok"),
-                 color: Colors.greenAccent,
+                 color: Colors.lightGreen,
     ),
              )
            ],
