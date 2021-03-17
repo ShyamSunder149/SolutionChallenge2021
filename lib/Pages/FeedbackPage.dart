@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,11 +10,12 @@ class FeedbackForm extends StatefulWidget {
 
 class _FeedbackFormState extends State<FeedbackForm> {
   TextEditingController _feedback;
+  ScrollController _controller1;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _feedback = TextEditingController(text: " ");
+    _controller1 = ScrollController();
   }
   @override
   Widget build(BuildContext context) {
@@ -30,41 +33,53 @@ class _FeedbackFormState extends State<FeedbackForm> {
         ),
       ),
       body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
             Container(
               height: MediaQuery.of(context).size.height*0.3,
               width: MediaQuery.of(context).size.width*0.9,
-
-              child: TextField(
-                controller: _feedback,
-
-                decoration: InputDecoration(
-                  hintText: "Please provide your valuable feedback...",
-                  focusColor: Colors.grey,
-                  hoverColor: Colors.grey,
-                  fillColor: Colors.grey,
-                  labelStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize:GFS(14, context)),
-                  contentPadding: EdgeInsets.zero
+              alignment: Alignment.bottomCenter,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.green,width: 2.0),
+                  borderRadius: BorderRadius.circular(20.0)
                 ),
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize:
-                    GFS(17, context)),
-                maxLines: 1,
-                toolbarOptions: ToolbarOptions(
-                    copy: true, paste: true, selectAll: true),
-                onSubmitted: (text) {
-                  setState(() {
-                    _feedback.text = text;
-                  });
-                },
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  autocorrect: true,
+                  controller: _feedback,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(
+                      color: Colors.grey
+                    ),
+                    hintText: "Please provide your valuable feedback...",
+                    focusColor: Colors.grey,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none
+                  ),
+                  maxLines: 10,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize:
+                      GFS(17, context)),
+                  toolbarOptions: ToolbarOptions(
+                      copy: true, paste: true, selectAll: true),
+                  onSubmitted: (text) {
+                    setState(() {
+                      _feedback.text = text;
+                    });
+                  },
+                ),
               )
             ),
+          SizedBox(
+            height: 30.0,
+          ),
            MaterialButton(
+
              onPressed: () async{
                _feedback.text = "";
                _showpopUp(context);
@@ -75,8 +90,13 @@ class _FeedbackFormState extends State<FeedbackForm> {
                height: MediaQuery.of(context).size.height*0.07,
                width: MediaQuery.of(context).size.width*0.4,
                decoration: BoxDecoration(
-                   color: Colors.lightGreen,
-                   borderRadius: BorderRadius.circular(40.0),
+                   borderRadius: BorderRadius.circular(34.0),
+                   gradient: LinearGradient(
+                       colors: [const Color(0xffcbf019), const Color(0xff309a20)],
+                       begin: Alignment.topLeft,
+                       end: Alignment.bottomRight,
+                   ),
+                 boxShadow: [BoxShadow(color: Colors.black26,spreadRadius: 0.5,blurRadius: 2.0,offset: Offset(0.0,5.0))]
 
                ),
                child: Center(
@@ -110,8 +130,19 @@ class _FeedbackFormState extends State<FeedbackForm> {
                  height:  MediaQuery.of(context).size.height*0.05,
                  width:  MediaQuery.of(context).size.width,
                  alignment: Alignment.center,
-                 child: Text("ok"),
-                 color: Colors.lightGreen,
+                 child: Text("OK",style: TextStyle(
+                   color: Colors.white,
+                   fontWeight: FontWeight.w600
+                 ),),
+                 decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(34.0),
+                     gradient: LinearGradient(
+                         colors: [const Color(0xffcbf019), const Color(0xff309a20)],
+                         begin: Alignment.topLeft,
+                         end: Alignment.bottomRight
+                     )
+
+                 ),
     ),
              )
            ],

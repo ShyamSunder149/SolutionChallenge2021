@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:agrokart/main.dart';
 import 'package:agrokart/Backend/Firebasee.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -37,7 +38,13 @@ class _LoginState extends State<Login> {
               Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.green,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [const Color(0xffcbf019), const Color(0xff309a20)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight
+              )
+          )
               ),  ///background
               Container(
                 height: MediaQuery.of(context).size.height,
@@ -47,11 +54,12 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      child: Text("AgroKart",style: TextStyle(
-                          fontWeight: FontWeight.w400,
+                      child: Text("Agromart",style:GoogleFonts.montserrat(textStyle: TextStyle(
+                          fontWeight: FontWeight.w700,
                           fontSize: GFS(60, context),
-                          color: Colors.white
-
+                          color: Colors.white,
+                        shadows: [Shadow(color: Colors.green[700],blurRadius: 2.0,offset: Offset(0,5.0))]
+                      )
                       ),),
                     ),  ///title
                     SizedBox(height: MediaQuery.of(context).size.height*0.05,),
@@ -61,7 +69,7 @@ class _LoginState extends State<Login> {
                       decoration: BoxDecoration(
                           color:Colors.white,
                           borderRadius: BorderRadius.circular(50.0),
-                          boxShadow: [BoxShadow(color: Colors.black54,spreadRadius: 1.0,blurRadius: 4.0,offset: Offset(2.0,4.0))]
+                          boxShadow: [BoxShadow(color: Colors.black26,spreadRadius: 1.0,blurRadius: 4.0,offset: Offset(2.0,4.0))]
                       ),
                       child: TextField(
                         controller: _numberController,
@@ -104,7 +112,7 @@ class _LoginState extends State<Login> {
                       decoration: BoxDecoration(
                           color:Colors.white,
                           borderRadius: BorderRadius.circular(50.0),
-                          boxShadow: [BoxShadow(color: Colors.black54,spreadRadius: 1.0,blurRadius: 4.0,offset: Offset(2.0,4.0))]
+                          boxShadow: [BoxShadow(color: Colors.black26,spreadRadius: 1.0,blurRadius: 4.0,offset: Offset(2.0,4.0))]
                       ),
                       child: TextField(
                         style: TextStyle(
@@ -166,18 +174,20 @@ class _LoginState extends State<Login> {
                         height: MediaQuery.of(context).size.height*0.07,
                         width: MediaQuery.of(context).size.width*0.4,
                         decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
+                            color:Colors.white,
                             borderRadius: BorderRadius.circular(50.0),
-                            boxShadow: [BoxShadow(color: Colors.black54,spreadRadius: 1.0,blurRadius: 4.0,offset: Offset(2.0,4.0))]
+                            boxShadow: [BoxShadow(color: Colors.black26,spreadRadius: 0.5,blurRadius: 2.0,offset: Offset(1.0,5.0))]
                         ),
                         child: Center(
                           child: Text("Sign In" ,
-                            style: TextStyle(
-                                color: Colors.white,
+                            style: GoogleFonts.montserrat(textStyle:TextStyle(
+                                color: Colors.green,
                                 fontSize: GFS(20, context),
+                              fontWeight: FontWeight.w700
 
                             ),
                           ),
+                          )
                         ),
 
                       ),

@@ -65,14 +65,15 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
               Container(
                 height: MediaQuery.of(context).size.height*0.3,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.white,
+           color: Colors.white,
                 alignment: Alignment.center,
                 child: Text(
-                   "AgroMart",style: GoogleFonts.roboto(
+                   "AgroMart",style: GoogleFonts.montserrat(
                   textStyle:TextStyle(
                       color:   Color(0xff309a20),
                       fontSize: GFS(35, context),
-                      fontWeight: FontWeight.w700
+                      fontWeight: FontWeight.w700,
+                    shadows: [Shadow(color: Colors.black26,blurRadius: 2.0,offset: Offset(0.0,5.0))]
                   ),
                 )
                 ),

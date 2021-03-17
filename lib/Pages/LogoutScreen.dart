@@ -45,11 +45,22 @@ class LogoutScreen extends StatelessWidget {
                       onTap:(){
                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => Login()),(Route<dynamic> route) => false);
                         },
-                      child: Text("Yes", style:  GoogleFonts.roboto(textStyle: TextStyle(
+                      child: Container(
+                        width: GFS(50, context),
+                        height: GFS(30, context),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
                           color: Colors.green,
-                          fontSize: GFS(20, context),
-                          fontWeight: FontWeight.w700
-                      ),),
+
+                        ),
+                        child: Center(
+                          child: Text("YES", style:  GoogleFonts.roboto(textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: GFS(15, context),
+                              fontWeight: FontWeight.w700
+                          ),),
+                          ),
+                        ),
                       )
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width*0.1,),
@@ -57,11 +68,23 @@ class LogoutScreen extends StatelessWidget {
                       onTap:(){
                         Navigator.pop(context);
                       },
-                      child: Text("No", style: GoogleFonts.roboto(textStyle:TextStyle(
+                      child: Container(
+
+                        width: GFS(50, context),
+                        height: GFS(30, context),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
                           color: Colors.red,
-                          fontSize: GFS(20, context),
-                          fontWeight: FontWeight.w700
-                      ),),
+
+                        ),
+                        child: Center(
+                          child: Text("NO", style: GoogleFonts.roboto(textStyle:TextStyle(
+                              color: Colors.white,
+                              fontSize: GFS(15, context),
+                              fontWeight: FontWeight.w700
+                          ),),
+                          ),
+                        ),
                       )
                     ),
                   ],

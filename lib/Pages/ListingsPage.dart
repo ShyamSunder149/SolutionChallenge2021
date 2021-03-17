@@ -10,6 +10,11 @@ class _ListingsPageState extends State<ListingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.green,
+        child: Icon(Icons.add,color: Colors.white,),
+      ),
       appBar: AppBar(
         shadowColor: Colors.white.withOpacity(0.0),
         backgroundColor: Colors.white,

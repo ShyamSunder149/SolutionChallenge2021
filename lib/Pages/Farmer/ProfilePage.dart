@@ -1,5 +1,6 @@
 import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FarmerProfile extends StatefulWidget {
   @override
@@ -24,12 +25,13 @@ class _FarmerProfileState extends State<FarmerProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        excludeHeaderSemantics: true,
-        elevation: 0.0,
-        title: Text(
-          "My Profile",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 17),
+        shadowColor: Colors.white.withOpacity(0.0),
+        backgroundColor: Colors.white,
+        title: Text("Profile",
+          style: GoogleFonts.roboto(textStyle:TextStyle(
+            color:  Color(0xff309a20),
+            fontSize: GFS(25, context),
+          ),),
         ),
       ),
       body: Container(
@@ -44,9 +46,11 @@ class _FarmerProfileState extends State<FarmerProfile> {
                 height: MediaQuery.of(context).size.width * 0.6 * 0.5,
                 width: MediaQuery.of(context).size.width * 0.6 * 0.5,
                 decoration: BoxDecoration(
-                    color: Colors.purple,
+                    color: Colors.grey,
                     shape: BoxShape.circle),
+                child: Icon(Icons.person,color: Colors.white,size:MediaQuery.of(context).size.width * 0.6 * 0.2 ,),
               ),
+
             ),
             Container(
               child: ListView(children: [
@@ -69,7 +73,6 @@ class _FarmerProfileState extends State<FarmerProfile> {
                             focusNode: FocusNode(
                                 canRequestFocus: false,
                                 descendantsAreFocusable: false),
-                            readOnly: true,
                             controller: controllerName,
                             decoration: InputDecoration(
                               labelText: "NAME",
@@ -131,7 +134,6 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
-                            readOnly: true,
                             controller: controllerMobile,
                             decoration: InputDecoration(
                               labelText: "MOBILE",
