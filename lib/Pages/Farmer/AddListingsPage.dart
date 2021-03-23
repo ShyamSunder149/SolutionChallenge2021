@@ -173,22 +173,32 @@ class _AddListingsState extends State<AddListings> {
             ),
             MaterialButton(
               onPressed: () {
-                database.collection("Listings").add({
-                  "Name": auth.currentUser.displayName,
-                  "phoneNumber": auth.currentUser.phoneNumber,
-                  "Crop": _crop.text,
-                  "Price": _price.text,
-                  "Description": _description.text,
-                  "Available Stock": _quantity.text,
-                  "timestamp": FieldValue.serverTimestamp()
-                });
-                setState(() {
-                  _quantity.text = "";
-                  _price.text = "";
-                  _description.text = "";
-                  _crop.text = "";
-                });
-                Navigator.pop(context);
+                if(_crop.text.isNotEmpty&&_description.text.isNotEmpty&&_quantity.text.isNotEmpty&&_price.text.isNotEmpty) {
+                  database.collection("Listings").add({
+                    "Name": auth.currentUser.displayName,
+                    "phoneNumber": auth.currentUser.phoneNumber,
+                    "Crop": _crop.text,
+                    "Price": _price.text,
+                    "Description": _description.text,
+                    "Available Stock": _quantity.text,
+                    "timestamp": FieldValue.serverTimestamp()
+                  });
+                  setState(() {
+                    _quantity.text = "";
+                    _price.text = "";
+                    _description.text = "";
+                    _crop.text = "";
+                  });
+                  Navigator.pop(context);
+                }
+                else ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(
+                  content:
+                  Text("Please fill all the fields"),
+                  duration: Duration(seconds: 2),
+                  backgroundColor: Colors.red,
+                ));
+
               },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.07,

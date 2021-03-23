@@ -9,7 +9,6 @@ class ListingsPage extends StatefulWidget {
 }
 
 class _ListingsPageState extends State<ListingsPage> {
-  final GlobalKey<ScaffoldState> Listing = GlobalKey();
   var listings;
   @override
   void initState() {
@@ -21,7 +20,6 @@ class _ListingsPageState extends State<ListingsPage> {
   Widget build(BuildContext context) {
     print("State");
     return Scaffold(
-      key: Listing,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, 'AddListings');
@@ -90,7 +88,8 @@ class _ListingsPageState extends State<ListingsPage> {
                                           .collection("Listings")
                                           .get()
                                           .then((value) {
-                                        value.docs.removeAt(index);
+                                            database.collection("Listings").doc(value.docs[index].id).delete();
+
                                       });
                                     }),
                                 subtitle: SizedBox(
