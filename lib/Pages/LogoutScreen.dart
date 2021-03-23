@@ -1,3 +1,4 @@
+import 'package:agrokart/Backend/Firebasee.dart';
 import 'package:agrokart/Pages/SignInPage.dart';
 import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,7 @@ class LogoutScreen extends StatelessWidget {
                   children: [
                     InkWell(
                         onTap: () {
+                          auth.signOut();
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(

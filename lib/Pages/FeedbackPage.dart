@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:agrokart/Backend/Firebasee.dart';
+
 class FeedbackForm extends StatefulWidget {
   @override
   _FeedbackFormState createState() => _FeedbackFormState();
@@ -79,9 +80,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
               onPressed: () async {
                 database.collection("Feedback").add({
                   "feedback": _feedback.text,
-                  "Name" : auth.currentUser.displayName,
-                  "phoneNumber" :auth.currentUser.phoneNumber,
-                  "timestamp":FieldValue.serverTimestamp()
+                  "Name": auth.currentUser.displayName,
+                  "phoneNumber": auth.currentUser.phoneNumber,
+                  "timestamp": FieldValue.serverTimestamp()
                 });
                 _feedback.text = "";
                 _showpopUp(context);
@@ -130,7 +131,6 @@ class _FeedbackFormState extends State<FeedbackForm> {
         actions: [
           InkWell(
             onTap: () {
-
               if (whoIsTheUser == 'Farmer') {
                 Navigator.popUntil(context, ModalRoute.withName('FarmerHome'));
               } else

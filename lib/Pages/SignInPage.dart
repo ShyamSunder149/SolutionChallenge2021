@@ -165,27 +165,54 @@ class _LoginState extends State<Login> {
                         auth.verifyPhoneNumber(
                             phoneNumber: _numberController.text,
                             timeout: Duration(seconds: 60),
-                            verificationCompleted: (PhoneAuthCredential phoneAuth) async{
-                              print("smscode : ${phoneAuth.smsCode} provider Id: ${phoneAuth.providerId}  verificationId: ${phoneAuth.verificationId} ");
+                            verificationCompleted:
+                                (PhoneAuthCredential phoneAuth) async {
+                              print(
+                                  "smscode : ${phoneAuth.smsCode} provider Id: ${phoneAuth.providerId}  verificationId: ${phoneAuth.verificationId} ");
                               print("User verified _____");
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(key:loginKey,content: Text("Please wait for few seconds"),duration: Duration(seconds: 2),backgroundColor: Colors.green[700],));
-                              await auth.signInWithCredential(phoneAuth).then((value) {
-                                value.user.updateProfile(displayName: _nameController.text);
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                key: loginKey,
+                                content: Text("Please wait for few seconds"),
+                                duration: Duration(seconds: 2),
+                                backgroundColor: Colors.green[700],
+                              ));
+                              await auth
+                                  .signInWithCredential(phoneAuth)
+                                  .then((value) {
+                                value.user.updateProfile(
+                                    displayName: _nameController.text);
                                 Navigator.pushNamed(context, 'ChooseYourRole');
-
                               });
                             },
-                            verificationFailed: (FirebaseAuthException exception){
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Verification Failed...Please retry"),duration: Duration(seconds: 2),backgroundColor: Colors.red,));
+                            verificationFailed:
+                                (FirebaseAuthException exception) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content:
+                                    Text("Verification Failed...Please retry"),
+                                duration: Duration(seconds: 2),
+                                backgroundColor: Colors.red,
+                              ));
                             },
-                            codeSent: (String verifyId,int token1){
-                              print("________verify : $verifyId ____token : $token1");
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("code sent"),duration: Duration(seconds: 2),backgroundColor: Colors.red,));
-
-                              },
+                            codeSent: (String verifyId, int token1) {
+                              print(
+                                  "________verify : $verifyId ____token : $token1");
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text("code sent"),
+                                duration: Duration(seconds: 2),
+                                backgroundColor: Colors.red,
+                              ));
+                            },
                             codeAutoRetrievalTimeout: (String status) {
                               print("codeAutoRetrievalTimeout:  $status");
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Timeout...Please retry"),duration: Duration(seconds: 2),backgroundColor: Colors.red,));
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text("Timeout...Please retry"),
+                                duration: Duration(seconds: 2),
+                                backgroundColor: Colors.red,
+                              ));
                             });
                       },
                       child: Container(

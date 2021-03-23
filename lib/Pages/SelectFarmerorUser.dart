@@ -47,7 +47,8 @@ class _SelectYourRoleState extends State<SelectYourRole> {
                   InkWell(
                     onTap: () {
                       whoIsTheUser = "User";
-                      auth.currentUser.updateProfile(displayName: auth.currentUser.displayName+"-User");
+                      auth.currentUser.updateProfile(
+                          displayName: auth.currentUser.displayName + "-User");
                       Navigator.pushNamed(context, 'UserHome');
                     },
                     child: Container(
@@ -78,7 +79,9 @@ class _SelectYourRoleState extends State<SelectYourRole> {
                     onTap: () {
                       setState(() {
                         whoIsTheUser = "Farmer";
-                        auth.currentUser.updateProfile(displayName: auth.currentUser.displayName+"-Farmer");
+                        auth.currentUser.updateProfile(
+                            displayName:
+                                auth.currentUser.displayName + "-Farmer");
                       });
                       Navigator.pushNamed(context, 'FarmerHome');
                     },

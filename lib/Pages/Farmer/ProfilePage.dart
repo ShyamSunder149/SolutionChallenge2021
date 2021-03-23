@@ -9,21 +9,28 @@ class FarmerProfile extends StatefulWidget {
 }
 
 class _FarmerProfileState extends State<FarmerProfile> {
-  TextEditingController controllerName,controllerAddress,controllerMobile,controllerDOB;
+  TextEditingController controllerName,
+      controllerAddress,
+      controllerMobile,
+      controllerDOB;
   @override
   void initState() {
     super.initState();
-    database.collection("Users").doc(auth.currentUser.phoneNumber).get().then((value) {
+    database
+        .collection("Users")
+        .doc(auth.currentUser.phoneNumber)
+        .get()
+        .then((value) {
       setState(() {
-        controllerName = TextEditingController(text: value.data()["Name"].toString().split("-")[0]);
+        controllerName = TextEditingController(
+            text: value.data()["Name"].toString().split("-")[0]);
         controllerDOB = TextEditingController(text: value.data()["DOB"]);
-        controllerAddress = TextEditingController(text:value.data()["Address"]);
-        controllerMobile = TextEditingController(text: auth.currentUser.phoneNumber);
-
+        controllerAddress =
+            TextEditingController(text: value.data()["Address"]);
+        controllerMobile =
+            TextEditingController(text: auth.currentUser.phoneNumber);
       });
-
     });
-
   }
 
   @override
@@ -32,11 +39,14 @@ class _FarmerProfileState extends State<FarmerProfile> {
       appBar: AppBar(
         shadowColor: Colors.white.withOpacity(0.0),
         backgroundColor: Colors.white,
-        title: Text("Profile",
-          style: GoogleFonts.roboto(textStyle:TextStyle(
-            color:  Color(0xff309a20),
-            fontSize: GFS(25, context),
-          ),),
+        title: Text(
+          "Profile",
+          style: GoogleFonts.roboto(
+            textStyle: TextStyle(
+              color: Color(0xff309a20),
+              fontSize: GFS(25, context),
+            ),
+          ),
         ),
       ),
       body: Container(
@@ -50,16 +60,17 @@ class _FarmerProfileState extends State<FarmerProfile> {
               child: Container(
                 height: MediaQuery.of(context).size.width * 0.6 * 0.5,
                 width: MediaQuery.of(context).size.width * 0.6 * 0.5,
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    shape: BoxShape.circle),
-                child: Icon(Icons.person,color: Colors.white,size:MediaQuery.of(context).size.width * 0.6 * 0.2 ,),
+                decoration:
+                    BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: MediaQuery.of(context).size.width * 0.6 * 0.2,
+                ),
               ),
-
             ),
             Container(
-              child: ListView(
-                  children: [
+              child: ListView(children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.25,
                   width: MediaQuery.of(context).size.width,
@@ -73,7 +84,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             focusNode: FocusNode(
@@ -87,14 +98,13 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               fillColor: Colors.grey,
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize:GFS(14, context)),
+                                  fontSize: GFS(14, context)),
                               contentPadding: EdgeInsets.zero,
                             ),
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -107,7 +117,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             controller: controllerAddress,
@@ -124,8 +134,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
                             onSubmitted: (text) {
@@ -137,7 +146,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             readOnly: true,
@@ -149,15 +158,14 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               fillColor: Colors.grey,
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize:GFS(14, context)),
+                                  fontSize: GFS(14, context)),
                               contentPadding: EdgeInsets.zero,
                             ),
                             keyboardType: TextInputType.number,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -170,7 +178,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             readOnly: true,
@@ -189,8 +197,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -206,15 +213,20 @@ class _FarmerProfileState extends State<FarmerProfile> {
                       ),
                       MaterialButton(
                         onPressed: () {
-                          auth.currentUser.updateProfile(displayName: (auth.currentUser.displayName.contains("Farmer") )?controllerName.text+"-Farmer":controllerName.text+"-User");
-                          database.collection("Users").doc(auth.currentUser.phoneNumber).set({
-                            "Phone" : auth.currentUser.phoneNumber,
-                            "Name" : auth.currentUser.displayName,
+                          auth.currentUser.updateProfile(
+                              displayName: (auth.currentUser.displayName
+                                      .contains("Farmer"))
+                                  ? controllerName.text + "-Farmer"
+                                  : controllerName.text + "-User");
+                          database
+                              .collection("Users")
+                              .doc(auth.currentUser.phoneNumber)
+                              .set({
+                            "Phone": auth.currentUser.phoneNumber,
+                            "Name": auth.currentUser.displayName,
                             "Address": controllerAddress.text,
-                            "DOB" :controllerDOB.text
+                            "DOB": controllerDOB.text
                           });
-
-
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.05,

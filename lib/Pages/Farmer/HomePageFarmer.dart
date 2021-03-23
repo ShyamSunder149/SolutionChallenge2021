@@ -3,6 +3,7 @@ import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class FarmerHomePage extends StatefulWidget {
   @override
   _FarmerHomePageState createState() => _FarmerHomePageState();
@@ -46,24 +47,24 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
   ];
   @override
   void initState() {
-   print(auth.currentUser.displayName);
+    print(auth.currentUser.displayName);
     super.initState();
-    if(auth.currentUser!=null){
-      database.collection("Users").doc(auth.currentUser.phoneNumber).get().then((value){
-        if(value.exists!=true){
+    if (auth.currentUser != null) {
+      database
+          .collection("Users")
+          .doc(auth.currentUser.phoneNumber)
+          .get()
+          .then((value) {
+        if (value.exists != true) {
           database.collection("Users").doc(auth.currentUser.phoneNumber).set({
-            "Phone" : auth.currentUser.phoneNumber,
-            "Name" : auth.currentUser.displayName
+            "Phone": auth.currentUser.phoneNumber,
+            "Name": auth.currentUser.displayName
           });
-
         }
       });
-
-
     }
-
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,19 +117,18 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: ListView.separated(
                         itemBuilder: (context, int index) => ListTile(
-                              leading: sideBar[index]['icon'],
-                              title: Text(sideBar[index]["title"],
-                                  style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: GFS(20, context),
-                                        fontWeight: FontWeight.w700),
-                                  )),
-                              onTap: () {
-                                Navigator.pushNamed(context, sideBar[index]["route"]);
-
-                              }
-                            ),
+                            leading: sideBar[index]['icon'],
+                            title: Text(sideBar[index]["title"],
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: GFS(20, context),
+                                      fontWeight: FontWeight.w700),
+                                )),
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, sideBar[index]["route"]);
+                            }),
                         separatorBuilder: (context, int index) => Divider(
                               color: Colors.white,
                               thickness: 1.0,
@@ -348,8 +348,7 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
                                 ),
                               ),
                             ),
-                          )
-                      ),
+                          )),
                 ),
               )
             ],

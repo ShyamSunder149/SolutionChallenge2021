@@ -16,6 +16,7 @@ class _ListingsPageState extends State<ListingsPage> {
     super.initState();
     listings = database.collection("Listings").snapshots();
   }
+
   @override
   Widget build(BuildContext context) {
     print("State");
@@ -53,82 +54,94 @@ class _ListingsPageState extends State<ListingsPage> {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.9,
             child: StreamBuilder(
-              stream: listings,
-              builder: (context, snapshot) {
-                if(!snapshot.hasData) return Center(child: CircularProgressIndicator());
-                else
-                return ListView.separated(
-                    itemCount: snapshot.data.docs.length,
-                    separatorBuilder: (context, int index) => Divider(),
-                    itemBuilder: (context, int index) => Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0)),
-                          shadowColor: Colors.black54,
-                          elevation: 5.0,
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.lightGreenAccent,
-                            ),
-                            title: Text(
-                              snapshot.data.docs[index]["Crop"],
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                    color: Colors.lightGreenAccent[700],
-                                    fontSize: GFS(17, context),
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ),
-                            trailing: IconButton(icon: Icon(Icons.delete,color: Colors.grey,), onPressed: () async{
-                              await database.collection("Listings").get().then((value) {
-                                value.docs.removeAt(index);
-                              });
-                            }),
-                            subtitle: SizedBox(
-                              //width: MediaQuery.of(context).size.width*0.5,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("Price :",
-                                      style: GoogleFonts.roboto(
-                                          textStyle: TextStyle(
-                                              color: Colors.blue,
-                                              fontSize: GFS(12, context),
-                                              fontWeight: FontWeight.w700))),
-                                  Text(snapshot.data.docs[index]["Price"],
-                                      style: GoogleFonts.roboto(
-                                          textStyle: TextStyle(
-                                              color: Colors.green,
-                                              fontSize: GFS(12, context),
-                                              fontWeight: FontWeight.w700))),
-                                  Spacer(),
-                                  Text(
-                                    "Stock:",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontStyle: FontStyle.italic,
-                                        color: Colors.blue,
-                                        fontSize: GFS(12, context),
-                                      ),
-                                    ),
+                stream: listings,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData)
+                    return Center(child: CircularProgressIndicator());
+                  else
+                    return ListView.separated(
+                        itemCount: snapshot.data.docs.length,
+                        separatorBuilder: (context, int index) => Divider(),
+                        itemBuilder: (context, int index) => Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              shadowColor: Colors.black54,
+                              elevation: 5.0,
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  backgroundColor: Colors.lightGreenAccent,
+                                ),
+                                title: Text(
+                                  snapshot.data.docs[index]["Crop"],
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                        color: Colors.lightGreenAccent[700],
+                                        fontSize: GFS(17, context),
+                                        fontWeight: FontWeight.w700),
                                   ),
-                                  Text(
-                                    snapshot.data.docs[index]["Available Stock"],
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        color: Colors.green,
-                                        fontSize: GFS(12, context),
-                                      ),
+                                ),
+                                trailing: IconButton(
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.grey,
                                     ),
-                                  )
-                                ],
+                                    onPressed: () async {
+                                      await database
+                                          .collection("Listings")
+                                          .get()
+                                          .then((value) {
+                                        value.docs.removeAt(index);
+                                      });
+                                    }),
+                                subtitle: SizedBox(
+                                  //width: MediaQuery.of(context).size.width*0.5,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Price :",
+                                          style: GoogleFonts.roboto(
+                                              textStyle: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: GFS(12, context),
+                                                  fontWeight:
+                                                      FontWeight.w700))),
+                                      Text(snapshot.data.docs[index]["Price"],
+                                          style: GoogleFonts.roboto(
+                                              textStyle: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: GFS(12, context),
+                                                  fontWeight:
+                                                      FontWeight.w700))),
+                                      Spacer(),
+                                      Text(
+                                        "Stock:",
+                                        style: GoogleFonts.roboto(
+                                          textStyle: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontStyle: FontStyle.italic,
+                                            color: Colors.blue,
+                                            fontSize: GFS(12, context),
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        snapshot.data.docs[index]
+                                            ["Available Stock"],
+                                        style: GoogleFonts.roboto(
+                                          textStyle: TextStyle(
+                                            fontStyle: FontStyle.italic,
+                                            color: Colors.green,
+                                            fontSize: GFS(12, context),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ));
-              }
-            ),
+                            ));
+                }),
           ),
         ),
       ),
