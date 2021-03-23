@@ -1,3 +1,4 @@
+import 'package:agrokart/Backend/Firebasee.dart';
 import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,17 +9,21 @@ class FarmerProfile extends StatefulWidget {
 }
 
 class _FarmerProfileState extends State<FarmerProfile> {
-  TextEditingController controllerName;
-  TextEditingController controllerEmail;
-  TextEditingController controllerMobile;
-  TextEditingController controllerDOB;
+  TextEditingController controllerName,controllerAddress,controllerMobile,controllerDOB;
   @override
   void initState() {
     super.initState();
-    controllerName = TextEditingController(text: 'Sudharsan');
-    controllerDOB = TextEditingController(text: '123435');
-    controllerEmail = TextEditingController(text: 'ANJ APT ,TRICHY -6201012');
-    controllerMobile = TextEditingController(text: '9843700596');
+    database.collection("Users").doc(auth.currentUser.phoneNumber).get().then((value) {
+      setState(() {
+        controllerName = TextEditingController(text: value.data()["Name"].toString().split("-")[0]);
+        controllerDOB = TextEditingController(text: value.data()["DOB"]);
+        controllerAddress = TextEditingController(text:value.data()["Address"]);
+        controllerMobile = TextEditingController(text: auth.currentUser.phoneNumber);
+
+      });
+
+    });
+
   }
 
   @override
@@ -53,7 +58,8 @@ class _FarmerProfileState extends State<FarmerProfile> {
 
             ),
             Container(
-              child: ListView(children: [
+              child: ListView(
+                  children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.25,
                   width: MediaQuery.of(context).size.width,
@@ -104,7 +110,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
-                            controller: controllerEmail,
+                            controller: controllerAddress,
                             decoration: InputDecoration(
                               labelText: "ADDRESS",
                               focusColor: Colors.grey,
@@ -124,7 +130,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                                 copy: true, paste: true, selectAll: true),
                             onSubmitted: (text) {
                               setState(() {
-                                controllerEmail.text = text;
+                                controllerAddress.text = text;
                               });
                             },
                           )),
@@ -134,6 +140,7 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
+                            readOnly: true,
                             controller: controllerMobile,
                             decoration: InputDecoration(
                               labelText: "MOBILE",
@@ -193,6 +200,53 @@ class _FarmerProfileState extends State<FarmerProfile> {
                               });
                             },
                           )),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.03,
+                        width: MediaQuery.of(context).size.width,
+                      ),
+                      MaterialButton(
+                        onPressed: () {
+                          auth.currentUser.updateProfile(displayName: (auth.currentUser.displayName.contains("Farmer") )?controllerName.text+"-Farmer":controllerName.text+"-User");
+                          database.collection("Users").doc(auth.currentUser.phoneNumber).set({
+                            "Phone" : auth.currentUser.phoneNumber,
+                            "Name" : auth.currentUser.displayName,
+                            "Address": controllerAddress.text,
+                            "DOB" :controllerDOB.text
+                          });
+
+
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(34.0),
+                              gradient: LinearGradient(
+                                colors: [
+                                  const Color(0xffcbf019),
+                                  const Color(0xff309a20)
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black26,
+                                    spreadRadius: 0.5,
+                                    blurRadius: 2.0,
+                                    offset: Offset(0.0, 5.0))
+                              ]),
+                          child: Center(
+                            child: Text(
+                              "Submit",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: GFS(20, context),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),

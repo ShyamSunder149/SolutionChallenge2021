@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:agrokart/main.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -36,8 +35,7 @@ class _UserHomePageState extends State<UserHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(FirebaseAuth.instance.currentUser);
-    print(whoIsTheUser);
+    debugPrint("whoistheUser: $whoIsTheUser");
     return Scaffold(
         appBar: AppBar(
           shadowColor: Colors.white.withOpacity(0.0),
@@ -292,28 +290,6 @@ class _UserHomePageState extends State<UserHomePage> {
                               ),
                             ),
                           )
-                    // Container(
-                    //   decoration: BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(15.0),
-                    //       gradient: LinearGradient(
-                    //           colors: [const Color(0xffcbf019), const Color(0xff309a20)],
-                    //           begin: Alignment.topLeft,
-                    //           end: Alignment.bottomRight
-                    //       )
-                    //
-                    //   ),
-                    //   height: MediaQuery.of(context).size.width*0.17,
-                    //   child: Center(
-                    //     child: Text("Paddy",
-                    //       style: GoogleFonts.roboto(textStyle:TextStyle(
-                    //           color: Colors.white,
-                    //           fontSize: GFS(17, context),
-                    //           fontWeight: FontWeight.w700
-                    //       ),),
-                    //
-                    //     ),
-                    //   ),
-                    // )
                   ),
                 ),
               )

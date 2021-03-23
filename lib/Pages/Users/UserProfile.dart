@@ -43,9 +43,8 @@ class _UserProfileState extends State<UserProfile> {
               child: Container(
                 height: MediaQuery.of(context).size.width * 0.6 * 0.5,
                 width: MediaQuery.of(context).size.width * 0.6 * 0.5,
-                decoration: BoxDecoration(
-                    color: Colors.purple,
-                    shape: BoxShape.circle),
+                decoration:
+                    BoxDecoration(color: Colors.purple, shape: BoxShape.circle),
               ),
             ),
             Container(
@@ -63,7 +62,7 @@ class _UserProfileState extends State<UserProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             focusNode: FocusNode(
@@ -78,14 +77,13 @@ class _UserProfileState extends State<UserProfile> {
                               fillColor: Colors.grey,
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize:GFS(14, context)),
+                                  fontSize: GFS(14, context)),
                               contentPadding: EdgeInsets.zero,
                             ),
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -98,7 +96,7 @@ class _UserProfileState extends State<UserProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             controller: controllerEmail,
@@ -115,8 +113,7 @@ class _UserProfileState extends State<UserProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
                             onSubmitted: (text) {
@@ -128,7 +125,7 @@ class _UserProfileState extends State<UserProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             readOnly: true,
@@ -140,15 +137,14 @@ class _UserProfileState extends State<UserProfile> {
                               fillColor: Colors.grey,
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize:GFS(14, context)),
+                                  fontSize: GFS(14, context)),
                               contentPadding: EdgeInsets.zero,
                             ),
                             keyboardType: TextInputType.number,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
@@ -161,7 +157,7 @@ class _UserProfileState extends State<UserProfile> {
                       Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal:
-                              MediaQuery.of(context).size.width * 0.07,
+                                  MediaQuery.of(context).size.width * 0.07,
                               vertical: 8.0),
                           child: TextField(
                             readOnly: true,
@@ -180,8 +176,7 @@ class _UserProfileState extends State<UserProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
-                                fontSize:
-                                GFS(17, context)),
+                                fontSize: GFS(17, context)),
                             maxLines: 1,
                             toolbarOptions: ToolbarOptions(
                                 copy: true, paste: true, selectAll: true),
