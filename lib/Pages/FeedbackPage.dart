@@ -131,7 +131,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
         actions: [
           InkWell(
             onTap: () {
-              if (whoIsTheUser == 'Farmer') {
+              if (auth.currentUser.displayName.contains("Farmer")) {
                 Navigator.popUntil(context, ModalRoute.withName('FarmerHome'));
               } else
                 Navigator.popUntil(context, ModalRoute.withName('UserHome'));

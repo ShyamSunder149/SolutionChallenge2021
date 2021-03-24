@@ -18,7 +18,6 @@ class _ListingsPageState extends State<ListingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("State");
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -66,6 +65,9 @@ class _ListingsPageState extends State<ListingsPage> {
                               shadowColor: Colors.black54,
                               elevation: 5.0,
                               child: ListTile(
+                                onTap: () {
+                                  Navigator.pushNamed(context, "ListingDetailsPage");
+                                },
                                 leading: CircleAvatar(
                                   backgroundColor: Colors.lightGreenAccent,
                                 ),

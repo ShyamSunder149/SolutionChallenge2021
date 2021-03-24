@@ -19,7 +19,7 @@ class _UserHomePageState extends State<UserHomePage> {
     {
       "title": "Listings",
       "icon": Icon(Icons.list_alt,color: Colors.white,),
-      "route": "ListingsPage"
+      "route": "UserListingPage"
     },
     {
       "title": "FeedBack",
@@ -238,6 +238,9 @@ class _UserHomePageState extends State<UserHomePage> {
                             shadowColor: Colors.black54,
                             elevation: 5.0,
                             child: ListTile(
+                              onTap: () {
+                                Navigator.pushNamed(context, "ListingDetailsPage");
+                              },
                               leading: CircleAvatar(
                                 backgroundColor: Colors.lightGreenAccent,
                               ),

@@ -296,6 +296,9 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
                             shadowColor: Colors.black54,
                             elevation: 5.0,
                             child: ListTile(
+                              onTap: () {
+                                Navigator.pushNamed(context, "ListingDetailsPage");
+                              },
                               leading: CircleAvatar(
                                 backgroundColor: Colors.lightGreenAccent,
                               ),

@@ -1,14 +1,15 @@
 import 'package:agrokart/Pages/Farmer/AddListingsPage.dart';
 import 'package:agrokart/Pages/Farmer/HomePageFarmer.dart';
-import 'package:agrokart/Pages/Farmer/ProfilePage.dart';
+import 'file:///C:/Users/sudha/AndroidStudioProjects/agrokart/lib/Pages/ProfilePage.dart';
 import 'package:agrokart/Pages/FeedbackPage.dart';
-import 'file:///C:/Users/sudha/AndroidStudioProjects/agrokart/lib/Pages/Farmer/ListingsPage.dart';
+import 'package:agrokart/Pages/ListingDetailsPage.dart';
+import 'file:///C:/Users/sudha/AndroidStudioProjects/agrokart/lib/Pages/Farmer/FarmerListings.dart';
 import 'package:agrokart/Pages/LogoutScreen.dart';
 import 'package:agrokart/Pages/SelectFarmerorUser.dart';
 import 'package:agrokart/Pages/SignInPage.dart';
+import 'package:agrokart/Pages/Users/UserListings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:agrokart/Pages/Users/UserHome.dart';
-import 'package:agrokart/Pages/Users/UserProfile.dart';
+import 'package:agrokart/Pages/Users/HomePageUser.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
@@ -35,14 +36,15 @@ class MyApp extends StatelessWidget {
       routes: {
         'LogoutScreen':(context) => LogoutScreen(),
         'FarmerProfilePage': (context) => FarmerProfile(),
-        'UserProfilePage': (context) => UserProfile(),
         'LoginSection': (context) => Login(),
         'FarmerHome': (context) => FarmerHomePage(),
         'ChooseYourRole': (context) => SelectYourRole(),
         'UserHome' : (context) => UserHomePage(),
         'ListingsPage':(context) => ListingsPage(),
+        "UserListingPage":(context) => UserListings(),
         "feedback":(context) => FeedbackForm(),
-        'AddListings' : (context) => AddListings()
+        'AddListings' : (context) => AddListings(),
+        'ListingDetailsPage' :(context) => ListingDetails()
       },
 
     );
