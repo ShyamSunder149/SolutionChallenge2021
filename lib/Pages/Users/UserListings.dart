@@ -54,11 +54,47 @@ class _UserListingsState extends State<UserListings> {
                               borderRadius: BorderRadius.circular(20.0)),
                           shadowColor: Colors.black54,
                           elevation: 5.0,
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, "ListingDetailsPage");
-                            },
+                          child: ExpansionTile(
+                            /*onTap: () {
+                                  Navigator.pushNamed(
+                                      context, "ListingDetailsPage");
+                                },*/
+                            children: [
+                              Text("Farmer:",
+                                  style: GoogleFonts.roboto(
+                                      textStyle: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: GFS(12, context),
+                                          fontWeight: FontWeight.w700))),
+                              Text(snapshot.data.docs[index]["Name"],
+                                  style: GoogleFonts.roboto(
+                                      textStyle: TextStyle(
+                                          color: Colors.green,
+                                          fontSize: GFS(12, context),
+                                          fontWeight: FontWeight.w700))),
+                              Spacer(),
+                              Text(
+                                "Contact:",
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.blue,
+                                    fontSize: GFS(12, context),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                snapshot.data.docs[index]["phoneNumber"],
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.green,
+                                    fontSize: GFS(12, context),
+                                  ),
+                                ),
+                              )
+                            ],
                             leading: CircleAvatar(
                               backgroundColor: Colors.lightGreenAccent,
                             ),
