@@ -10,11 +10,11 @@ class UserListings extends StatefulWidget {
 }
 
 class _UserListingsState extends State<UserListings> {
-  var listings;
+  var _listings;
   @override
   void initState() {
     super.initState();
-    listings = database.collection("Listings").snapshots();
+    _listings = database.collection("Listings").snapshots();
   }
 
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _UserListingsState extends State<UserListings> {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.9,
             child: StreamBuilder(
-                stream: listings,
+                stream: _listings,
                 builder: (context, snapshot) {
                   if (!snapshot.hasData)
                     return Center(child: CircularProgressIndicator());
@@ -55,45 +55,108 @@ class _UserListingsState extends State<UserListings> {
                           shadowColor: Colors.black54,
                           elevation: 5.0,
                           child: ExpansionTile(
-                            /*onTap: () {
-                                  Navigator.pushNamed(
-                                      context, "ListingDetailsPage");
-                                },*/
+                            childrenPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.1),
+                            expandedAlignment: Alignment.centerLeft,
+                            expandedCrossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Farmer:",
+                              RichText(text: TextSpan(children:
+                              [
+                                TextSpan(text:"Name:            ",
+                                    style: GoogleFonts.roboto(
+                                        textStyle: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: GFS(15, context),
+                                            fontWeight: FontWeight.w700))),
+                                TextSpan(text:snapshot.data.docs[index]["Name"].toString().split("-")[0],
+                                    style: GoogleFonts.roboto(
+                                        textStyle: TextStyle(
+                                            color: Colors.green,
+                                            fontSize: GFS(15, context),
+                                            fontWeight: FontWeight.w700))),
+
+                              ])),
+                              SizedBox(height: 5.0,),
+                              RichText(text: TextSpan(children:
+                              [
+                                TextSpan(
+                                  text:"Contact:        ",
                                   style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                          color: Colors.blue,
-                                          fontSize: GFS(12, context),
-                                          fontWeight: FontWeight.w700))),
-                              Text(snapshot.data.docs[index]["Name"],
-                                  style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                          color: Colors.green,
-                                          fontSize: GFS(12, context),
-                                          fontWeight: FontWeight.w700))),
-                              Spacer(),
-                              Text(
-                                "Contact:",
-                                style: GoogleFonts.roboto(
-                                  textStyle: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.blue,
-                                    fontSize: GFS(12, context),
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.blue,
+                                      fontSize: GFS(15, context),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                snapshot.data.docs[index]["phoneNumber"],
-                                style: GoogleFonts.roboto(
-                                  textStyle: TextStyle(
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.green,
-                                    fontSize: GFS(12, context),
+                                TextSpan(
+                                  text:snapshot.data.docs[index]["phoneNumber"],
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.green,
+                                      fontSize: GFS(15, context),
+                                    ),
+                                  ),
+                                )
+                              ])),
+                              SizedBox(height: 5.0,),
+                              RichText(text: TextSpan(children:
+                              [
+                                TextSpan(
+                                  text:"Stock:            ",
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.blue,
+                                      fontSize: GFS(15, context),
+                                    ),
                                   ),
                                 ),
-                              )
+                                TextSpan(
+                                  text:snapshot.data.docs[index]
+                                  ["Available Stock"],
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.green,
+                                      fontSize: GFS(15, context),
+                                    ),
+                                  ),
+                                )
+
+                              ])),
+                              SizedBox(height: 5.0,),
+                              RichText(text: TextSpan(children:
+                              [
+                                TextSpan(
+                                  text:"Description:  ",
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.blue,
+                                      fontSize: GFS(15, context),
+                                    ),
+                                  ),
+                                ),
+                                TextSpan(
+                                  text:snapshot.data.docs[index]
+                                  ["Description"],
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.green,
+                                      fontSize: GFS(15, context),
+                                    ),
+                                  ),
+                                )
+
+                              ])),
+                              SizedBox(height: 5.0,),
+
+
                             ],
                             leading: CircleAvatar(
                               backgroundColor: Colors.lightGreenAccent,
@@ -127,29 +190,7 @@ class _UserListingsState extends State<UserListings> {
                                               fontSize: GFS(12, context),
                                               fontWeight:
                                               FontWeight.w700))),
-                                  Spacer(),
-                                  Text(
-                                    "Stock:",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontStyle: FontStyle.italic,
-                                        color: Colors.blue,
-                                        fontSize: GFS(12, context),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    snapshot.data.docs[index]
-                                    ["Available Stock"],
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        color: Colors.green,
-                                        fontSize: GFS(12, context),
-                                      ),
-                                    ),
-                                  )
+
                                 ],
                               ),
                             ),

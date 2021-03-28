@@ -9,11 +9,11 @@ class ListingsPage extends StatefulWidget {
 }
 
 class _ListingsPageState extends State<ListingsPage> {
-  var listings;
+  var _listings;
   @override
   void initState() {
     super.initState();
-    listings = database.collection("Listings").snapshots();
+    _listings = database.collection("Listings").snapshots();
   }
 
   @override
@@ -51,7 +51,7 @@ class _ListingsPageState extends State<ListingsPage> {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.9,
             child: StreamBuilder(
-                stream: listings,
+                stream: _listings,
                 builder: (context, snapshot) {
                   if (!snapshot.hasData)
                     return Center(child: CircularProgressIndicator());

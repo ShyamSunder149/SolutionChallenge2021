@@ -167,16 +167,6 @@ class _LoginState extends State<Login> {
                             timeout: Duration(seconds: 60),
                             verificationCompleted:
                                 (PhoneAuthCredential phoneAuth) async {
-                              print(
-                                  "smscode : ${phoneAuth.smsCode} provider Id: ${phoneAuth.providerId}  verificationId: ${phoneAuth.verificationId} ");
-                              print("User verified _____");
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                key: loginKey,
-                                content: Text("Please wait for few seconds"),
-                                duration: Duration(seconds: 2),
-                                backgroundColor: Colors.green[700],
-                              ));
                               await auth
                                   .signInWithCredential(phoneAuth)
                                   .then((value) {
@@ -196,17 +186,14 @@ class _LoginState extends State<Login> {
                               ));
                             },
                             codeSent: (String verifyId, int token1) {
-                              print(
-                                  "________verify : $verifyId ____token : $token1");
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(SnackBar(
                                 content: Text("code sent"),
                                 duration: Duration(seconds: 2),
-                                backgroundColor: Colors.red,
+                                backgroundColor: Colors.greenAccent,
                               ));
                             },
                             codeAutoRetrievalTimeout: (String status) {
-                              print("codeAutoRetrievalTimeout:  $status");
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(SnackBar(
                                 content: Text("Timeout...Please retry"),
