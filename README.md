@@ -15,23 +15,23 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-##Problem Statement
+## Problem Statement
 In India,Farmer's are not facing the profit that they deserve and suffering from loan debts and interference of middlman who acts as a mediator between farmers and the market as middleman buys the goods from the farmer at a very low cost and sells it in the market at a highly profitable rate.
 
-##Solution Idea
+## Solution Idea
 To Solve the above problem statement, Instead of having a middleman, farmers and users can interact directly by this app So that the farmers can decide their own rate for the thing what they produced and can make them earn profit.
 
-##Solution Description
+## Solution Description
 Farmer can listout the following things:
-*What they are willing to sell*
-*The amount of quantity*
-*Price for the product*
-*Description of the Product*
+*What they are willing to sell*,
+*The amount of quantity*,
+*Price for the product*,
+*Description of the Product* and
 *Contact of the farmer*
 
 The user can look at the listings posted and they can buy directly from the farmer using the contact information provided in the listing.
 
-##Benefits of the solution:
+## Benefits of the solution:
 Consumer can buy what they wish to buy and we provide them a platform to compare rates and buy at their own comfortable rate.
 Farmers can sell their product at a price where they can earn a reasonable amount of profit
 this app will be beneficial for both the parties (consumer and farmers)
@@ -44,5 +44,7 @@ the main motive is to make farmer earn more for what they have worked for and th
 ![WhatsApp Image 2021-03-30 at 21 24 49 (4)](https://user-images.githubusercontent.com/55373148/113177217-ea4c7500-926a-11eb-8cf6-6f6f6bf3e9ee.jpeg)
 ![WhatsApp Image 2021-03-30 at 21 24 49](https://user-images.githubusercontent.com/55373148/113177219-ea4c7500-926a-11eb-82d4-28666769939a.jpeg)
 ![WhatsApp Image 2021-03-30 at 21 34 41](https://user-images.githubusercontent.com/55373148/113177224-eae50b80-926a-11eb-9cb5-048ccd1ef0f7.jpeg)
+![WhatsApp Image 2021-03-31 at 21 50 19](https://user-images.githubusercontent.com/55373148/113177443-254ea880-926b-11eb-9348-174d35b56cdb.jpeg)
+
 
 
