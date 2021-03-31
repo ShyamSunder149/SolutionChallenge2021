@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "1063023793823-dt1b9ijkk9cg8ufagrnh9ipn740mbesh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrokart",
+            "certificate_hash": "5a1bc10925f9c01324256177574f1648a188288b"
+          }
+        },
+        {
+          "client_id": "1063023793823-gg66l7ev51bft4tm9c77g86r21ppa1pc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrokart",
+            "certificate_hash": "82230c8c6b60097d2908977a416f53fafb20005f"
+          }
+        },
+        {
           "client_id": "1063023793823-nenru303a54ricbc86518qb9nb78l582.apps.googleusercontent.com",
           "client_type": 3
         }

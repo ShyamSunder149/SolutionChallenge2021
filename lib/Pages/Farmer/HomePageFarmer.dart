@@ -3,12 +3,10 @@ import 'package:agrokart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 class FarmerHomePage extends StatefulWidget {
   @override
   _FarmerHomePageState createState() => _FarmerHomePageState();
 }
-
 class _FarmerHomePageState extends State<FarmerHomePage> {
   final GlobalKey<ScaffoldState> homePage = GlobalKey();
   var _listings;
@@ -19,7 +17,7 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
         Icons.person,
         color: Colors.white,
       ),
-      "route": "FarmerProfilePage"
+      "route": "ProfilePage"
     },
     {
       "title": "Listings",

@@ -1,9 +1,10 @@
 import 'package:agrokart/Pages/Farmer/AddListingsPage.dart';
 import 'package:agrokart/Pages/Farmer/HomePageFarmer.dart';
-import 'file:///C:/Users/sudha/AndroidStudioProjects/agrokart/lib/Pages/ProfilePage.dart';
+import 'package:agrokart/Pages/ProfilePage.dart';
 import 'package:agrokart/Pages/FeedbackPage.dart';
-import 'file:///C:/Users/sudha/AndroidStudioProjects/agrokart/lib/Pages/Farmer/FarmerListings.dart';
+import 'package:agrokart/Pages/Farmer/FarmerListings.dart';
 import 'package:agrokart/Pages/LogoutScreen.dart';
+import 'package:agrokart/Pages/ProfilePage.dart';
 import 'package:agrokart/Pages/SelectFarmerorUser.dart';
 import 'package:agrokart/Pages/SignInPage.dart';
 import 'package:agrokart/Pages/Users/UserListings.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         "UserListingPage":(context) => UserListings(),
         "feedback":(context) => FeedbackForm(),
         'AddListings' : (context) => AddListings(),
+        "ProfilePage":(context) => FarmerProfile(),
       },
 
     );

@@ -16,7 +16,7 @@ class _UserHomePageState extends State<UserHomePage> {
     {
       "title": "Profile",
       "icon": Icon(Icons.person,color: Colors.white,),
-      "route": "UserProfilePage"
+      "route": "ProfilePage"
     },
     {
       "title": "Listings",
