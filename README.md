@@ -33,11 +33,11 @@ The user can look at the listings posted and they can buy directly from the farm
 
 ## Benefits of the solution:
 Consumer can buy what they wish to buy and we provide them a platform to compare rates and buy at their own comfortable rate.
-Farmers can sell their product at a price where they can earn a reasonable amount of profit
-this app will be beneficial for both the parties (consumer and farmers)
-the main motive is to make farmer earn more for what they have worked for and the elimination of middleman
+Farmers can sell their product at a price where they can earn a reasonable amount of profit.
+This app will be beneficial for both the parties (consumer and farmers).
+The main motive is to make farmer earn more for what they have worked for and the elimination of middleman.
 
-##Screenshots from the App
+## Screenshots from the App
 ![WhatsApp Image 2021-03-30 at 21 24 49 (1)](https://user-images.githubusercontent.com/55373148/113177210-e7ea1b00-926a-11eb-9d47-cc5e79283daf.jpeg)
 ![WhatsApp Image 2021-03-30 at 21 24 49 (2)](https://user-images.githubusercontent.com/55373148/113177212-e91b4800-926a-11eb-9185-77af9a954437.jpeg)
 ![WhatsApp Image 2021-03-30 at 21 24 49 (3)](https://user-images.githubusercontent.com/55373148/113177216-e9b3de80-926a-11eb-8109-2caeecc60540.jpeg)
