@@ -107,8 +107,7 @@ class _LoginState extends State<Login> {
                         keyboardType: TextInputType.numberWithOptions(),
                         onSubmitted: (text) {
                           setState(() {
-                            _numberController.text = "+91" + text;
-                            number = "+91" + text;
+                            _numberController.text = text;
                           });
                         },
                       ),
@@ -163,7 +162,7 @@ class _LoginState extends State<Login> {
                     InkWell(
                       onTap: () {
                         auth.verifyPhoneNumber(
-                            phoneNumber: _numberController.text,
+                            phoneNumber: "+91" + _numberController.text,
                             timeout: Duration(seconds: 60),
                             verificationCompleted:
                                 (PhoneAuthCredential phoneAuth) async {
